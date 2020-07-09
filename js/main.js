@@ -2,12 +2,12 @@ var beersJson = 'https://raw.githubusercontent.com/pablz/logourl/master/beers.js
 assetsJson = 'https://raw.githubusercontent.com/pablz/logourl/master/assets.json'
 assetsArr = [],
 beersArr = [];
-
+/*
 (()=>{
     getBeers()
 })();
 
-function getBeers(){
+/* function getBeers(){
     //consumir un json de modo asíncrono con fetch api
     fetch(beersJson)
     .then(response =>{
@@ -23,8 +23,24 @@ function getBeers(){
         console.log('Llegó la birra!'); 
     })
 }
+*/
 
+(()=>{
+    getAssets()
+})();
 
-
-
-
+function getAssets(){
+    fetch(assetsJson)
+    .then(response =>{
+        return response.json();
+    })
+    .then(data2 => {
+        assetsArr.push(data2);
+    })
+    .catch(error2 => {
+        console.log(error2);
+    })
+    .finally(()=>{
+        console.log('Llegó los assets!'); 
+    })
+}
